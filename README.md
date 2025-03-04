@@ -74,65 +74,65 @@ projects/mini-react/
 - weekly/*   : 周任务专属分支
 
 
-### 维护建议：
+# 维护建议：
 目录清理周期
 每周目录保留最近8周内容
 每月归档历史内容到archive/目录
 
-# 文件命名规范
+### 文件命名规范
 - 代码文件 : kebab-case（例：virtual-list.tsx）
 - 文档文件 : 01-topic-name.md（序号+主题）
 - 资源文件 : yyyymmdd-description.png（日期+描述）
 
-# 智能检索优化
+### 智能检索优化
 在README添加搜索标签：
 <!-- TAGS: react, browser, 性能优化 -->
 
-### 项目初始化
+# 项目初始化
 
-# 创建基础结构
+### 创建基础结构
 mkdir -p 2025-Mar-May/{.github/{workflows,ISSUE_TEMPLATE},docs/{browser,react,engineering,assets},projects,weekly,templates,scripts}
 
-# 添加基础文件
+### 添加基础文件
 touch README.md ROADMAP.md .gitignore
 echo "node_modules\n.DS_Store\ndist" > .gitignore
 
-# 删除目录的误跟踪文件（如果有的话）
+### 删除目录的误跟踪文件（如果有的话）
 git rm --cached package*
 git rm -r --cached node_modules
 
-# 创建.gitignore防止误添加
+### 创建.gitignore防止误添加
 echo "node_modules/" > .gitignore
 echo "package-lock.json" >> .gitignore
 
-# 初始化Git
+### 初始化Git
 git init
 
 
-# 1. Git Hook增强
-# 安装Husky
+### 1. Git Hook增强
+#### 安装Husky
 npx husky install
 npx husky add .husky/pre-commit "npm run lint"
 
-# 2. 文档自动化
-# 使用VitePress快速搭建文档站
+### 2. 文档自动化
+#### 使用VitePress快速搭建文档站
 npm install vitepress --save-dev
 mkdir docs/.vitepress
 
-### 初次提交代码
-# 查看所有本地分支（带星号的是当前分支）
+# 初次提交代码
+### 查看所有本地分支（带星号的是当前分支）
 git branch
-# 将master分支重命名为main
+### 将master分支重命名为main
 git branch -m master main
-# 创建初始提交（如果尚未提交）
+### 创建初始提交（如果尚未提交）
 git add .
 git commit -m "chore: initialize repository structure"
-# 第一步：在GitHub创建空仓库
-# 第二步：本地仓库关联远程仓库
-# 添加远程仓库地址（注意替换你的用户名）
+### 第一步：在GitHub创建空仓库
+### 第二步：本地仓库关联远程仓库
+#### 添加远程仓库地址（注意替换你的用户名）
 git remote add origin https://github.com/Midsummer95/2025-Mar-May.git
-# 第三步：首次推送代码
-# 强制推送本地分支到远程（仅首次需要-f参数）
+### 第三步：首次推送代码
+### 强制推送本地分支到远程（仅首次需要-f参数）
 git push -u -f origin main
-# 常规推送（后续操作）
+### 常规推送（后续操作）
 git push
